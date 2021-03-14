@@ -1,0 +1,18 @@
+/*!LES STYLES DE TON FOOTER ICI*/
+.footer {
+    background: #fbfdff;
+}
+
+.footer .footer__items {
+    padding: 1.25rem;
+}
+
+.footer .footer__content {
+    padding: 3rem 0;
+}
+
+.footer .footer__copyright {
+    background-color: var(--blueLight);
+    color: white;
+    padding: .7rem 1.25rem;
+}

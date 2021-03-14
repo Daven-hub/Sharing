@@ -1,0 +1,31 @@
+:root {
+	/*!COLORS*/
+	/**Primary*/
+    --blueLight: hsl(204, 100%, 50%);
+    --darkBlue : hsl(226,100%,50%);
+	--orange : hsl(30, 100%, 59%);
+	--orangeFonce: rgb(255,133,51,100%);
+	--orangeTransparent: rgb(255,209,179,100%);
+	--belge: rgb(255,246,240,100%);
+	--marron: rgb(144,69,18,100%);
+	--rougeClair: rgb(254,210,210,100%);
+	--rougeSombre: rgb(251,111,111,100%);
+	--vert: rgb(40,205,106,100%);
+	
+
+	/**Neutral*/
+	--grayDark:#444040;
+	--lightGrayishBlue: hsl(220, 16%, 96%);
+	--veryLightGray: hsl(0, 0%, 98%);
+	--white: hsl(0, 0%, 100%);
+	--max: #ECECEC;
+
+	/**Fonts*/
+	--font-s : .75rem /*12px*/;
+	--font-sm: 1rem /*16px*/;
+    --font-md: 1.125rem /*18px*/;
+    
+
+	/*!BREAKPOINT*/
+	--container : 1100px;
+}

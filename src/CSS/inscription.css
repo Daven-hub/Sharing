@@ -1,0 +1,55 @@
+
+.auth__register {
+    overflow-y: scroll;
+} 
+
+.form__container .form__legend {
+    text-align: center;
+}
+
+.form__container .form__register {
+    margin-top: 2.5rem;
+}
+
+.auth__grid .form__group {
+    margin-bottom: .8rem;
+} 
+
+.auth__grid .form__group .error__{
+    display: none;
+}
+.form__group label {
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 12px;
+    display: inline-block;
+    color: rgb(4, 4, 39);
+}
+.form__legend p span{
+    color: red;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--blueLight);
+    transition: .3s;
+    opacity: .7;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(143, 143, 143);
+}

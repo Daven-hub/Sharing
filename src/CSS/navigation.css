@@ -1,0 +1,50 @@
+.main__navigation {
+    position: fixed;
+    background-color: var(--blueLight);
+    color: white;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 500px;
+    width: 70%;
+    z-index: 1;
+    box-shadow: 3px 0 3px 1px rgba(0, 0, 0, .1), 1px 0 6px 3px rgba(0, 0, 0, .1);
+    transform: translateX(-105%);
+    transition: transform .5s ease-in-out;
+    overflow-y: scroll;
+}
+.nav__header {
+    background-color: rgb(0, 138, 230);
+    padding: 1.5rem 2rem;
+}
+
+.nav__header h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+}
+.main__navigation ul{
+   
+}
+
+.main__navigation ul li a{
+    display: inline-block;
+    padding: .8rem 1rem;
+    width: 100%;
+    border-radius: 4px;
+    color: var(--veryLightGray);
+    padding: .5rem 2rem;
+}
+
+.main__navigation ul li a:hover{
+    background-color:  rgb(0, 138, 230);
+}
+
+.sub__category {
+    color: white;
+    background: rgb(0, 138, 230);
+    padding: .7rem 2rem;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 18px;
+}
