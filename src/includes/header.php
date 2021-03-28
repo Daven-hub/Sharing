@@ -4,9 +4,24 @@
     <a href="/Booksharing/index.php" class="header__logo">
       <img src="/Booksharing/images/logo.svg" alt="logo">
     </a>
+    <?php
+       try{
+        $bdd = new PDO('mysql:host=localhost; dbname=booksharing;charset=utf8', 'root', '');
+    }catch(Exception $e)
+    {
+     die('Erreur' .$e->getMessage());   
+    }
+        $prixt = 0;
+        if (isset($_SESSION['user'])) {
 
+          $query = "SELECT count(*) as nbr from livre l,commande c,commande_livre cl WHERE l.ISBN=cl.ISBN and c.ID_CMD=cl.ID_CMD and c.ID_USER=" . $_SESSION['user']['ID_USER'];
+          $select = $bdd->query($query)->fetch();
+          
+        }
+          ?>
     <div class="header__icon">
-      <a href="/Booksharing/src/panier.php"><i class="fal fa-shopping-cart"></i></a>
+    <span class="shop"><?php   if (isset($_SESSION['user'])) { echo $select['nbr']; } ?></span>
+  <a href="/Booksharing/src/panier.php"><i class="fal fa-shopping-cart"></i></a>
       <?php if (isset($_SESSION['user']['NOM_PRENOM'])) : ?>
         <div class="user__setting">
           <ul class="user__nav">

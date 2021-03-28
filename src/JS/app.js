@@ -49,3 +49,22 @@ document.querySelectorAll('.js-modal').forEach(a => {
     a.addEventListener('click', openModal)
    
 })
+
+// Calcul des quantités sur le panier 
+//let  book__number =  document.getElementById("book__number");
+//book__number.addEventListener("change", function(){calculqt(this.getAttribute("isbn"), this.value);});
+//prix.addEventListener("span", function(){calculqt(this.id, this.value);});
+
+function calculqt (isbn, valeur, bookprice)
+{
+    let  prix =  document.getElementById("prix_"+isbn);
+    let  total =  document.getElementById("total__price");
+    let price = valeur * bookprice;
+    prix.innerText = price ;
+    let divs = document.getElementsByClassName("book__price");
+    let totalprice =0;
+    for(let i =0;i < divs.length;i++){console.log(divs.item(i).children[0].innerText);
+        totalprice += parseInt(divs.item(i).children[0].innerText);
+    }
+    total.innerText = parseInt(totalprice) ;
+}

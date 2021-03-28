@@ -11,7 +11,7 @@
   </head>
   <body class= "register__page">
 
-<?php session_start();?>
+<?php session_start(); require_once('config.php');?>
 <header class="header ">
   <div class="header__nav">
     <a href="/Booksharing/index.php" class="header__logo">
@@ -84,7 +84,7 @@
                      break;
                     
                    case 'livres':    
-                     include ('./includes/setting/livre.php');
+                     include ('./includes/setting/mybook.php');
                     break;  
 
                     case 'commande':    

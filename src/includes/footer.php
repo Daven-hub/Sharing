@@ -7,7 +7,7 @@
       </div>
       <div class="footer__Newsletter footer__items">
         <h3>À propos de nous </h3>
-        <p>Munroe Global is dedicated to the development of nations</p>
+        <p style="overflow-y: scroll;height:150px">The RDCT conducts applied research to produce knowledge used to develop commercial products and services. The produced knowledge is transferred to the youths through practice-oriented training courses and to the industry through consulting services.</p>
         <form action="" class="footer__form">
           <div class="form__group">
             <input type="text" name="" id="" placeholder="Nom et Prénom"/><br />
@@ -22,9 +22,10 @@
       </div>
       <div class="footer__contact footer__items">
         <h3>Contact</h3>
-        <p>Munroe Global is dedicated to the development of nations, </p>
-        <p>Munroe Global is dedicated to the development of nations, </p>
-        <p>Munroe Global is dedicated to the development of nations, </p>
+        <p> <i class=" active fas fa-envelope"></i> info.rdct@gmail.com</p>
+        <p> <i class=" active fas fa-envelope"></i> booksharing@gmail.com</p>
+        <p> <i class=" active fas fa-phone"></i> (+237) 694-06-05-24 </p>
+        <p> <i class=" active fas fa-facebook-square"></i> INFO.BOOKSHARING </p>
       </div>
       <div class="footer__privacy footer__items">
         <h3>Politique du site</h3>

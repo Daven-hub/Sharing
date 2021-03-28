@@ -1,0 +1,31 @@
+
+.slider{
+  width: 500px;
+  overflow: hidden;
+  margin: 150px auto;
+}
+
+.slides{
+  animation: glisse 10s infinite;
+  display: flex;
+align-items: center;
+}
+.slide{
+float: left;
+
+}
+
+@keyframes glisse{
+  0%{
+    transform: translateX(0);
+  }
+  33%{
+    transform: translateX(-500px);
+  }
+  66%{
+    transform: translateX(-1000px);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}

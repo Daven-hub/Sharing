@@ -20,11 +20,8 @@
 
 .nav__header h3 {
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 600;
     margin: 0;
-}
-.main__navigation ul{
-   
 }
 
 .main__navigation ul li a{
@@ -47,4 +44,8 @@
     margin-top: 2rem;
     font-weight: bold;
     font-size: 18px;
+}
+.actived{
+        background-color:  rgb(112, 180, 224);
+        border-radius: 3px;
 }

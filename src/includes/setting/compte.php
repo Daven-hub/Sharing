@@ -1,13 +1,62 @@
 
 <section>
   <?php
-  if(isset($_GET['id_user']))
+  if(isset($_SESSION['user']))
   {
-    $id_user =$_GET['ID_USER'];
-    $select = $bdd -> query("SELECT * FROM utilisateurs WHERE ID_USER='".$_GET['id_user']."'") -> fetch(); 
-  }
-  ?>
-<div class="auth__grid">
+    $id_user =$_SESSION['user']['ID_USER'];
+    $select = $bdd -> query("SELECT * FROM utilisateurs WHERE ID_USER='$id_user'") -> fetch();
+   
+
+     ?>
+     <form action="inscription_traitement.php?ID_USER=<?php echo $id_user; ?>" method="POST">
+     <?php
+          if(isset($_GET['reg_err']))
+          {
+            $err = htmlspecialchars($_GET['reg_err']);
+
+            switch($err)
+            {
+
+              case 'succes':
+                ?>
+                <div class="error__ error__succes"><i class="fas fa-check-circle"></i></i> Inscription Réussie !</div>
+              <?php
+              break; 
+
+              case 'password':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> Mot de passe different !</div>
+              <?php
+              break; 
+
+              case 'email':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> Email non valide</div>
+              <?php
+              break; 
+
+              case 'email_length':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> Email trop long</div>
+              <?php
+              break;
+
+              case 'nom_length':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> Nom trop long</div>
+              <?php
+              break;
+
+              case 'already':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> Compte déja existant</div>
+              <?php
+              break;
+             }
+          }
+        ?>   
+        <br>
+     <div class="auth__grid">
                 <div class="form__group">
                   <label for="nom">Nom et Prénom</label>
                   <input type="text" name="nom" id="" value="<?php echo $select['NOM_PRENOM']; ?>"/><br />
@@ -50,14 +99,15 @@
                
               </div>
               <div class="form__group">
-                <label for="password">Mot de passe</label>
+                <label for="password">Nouveau Mot de passe</label>
                 <input type="password" name="password" id="mdp-verify" value="<?php echo $select['MDP']; ?>" class="" /><br />
                
               </div>
               <div class="form__group">
                 <label for="mdp-verify">Confirmer votre mot de passe</label>
-                <input type="password" name="password_retype" id="mdp-verify" value="<?php echo $select['MDP']; ?>" class="" /><br />
+                <input type="password" name="password_retype" id="mdp-verify" value="<?php echo $select['MDP']; } ?>" class="" /><br />
               </div>
-              <button class="btn btn__colored ">Modifier</button>
+              <button name="modif"  class="btn btn__colored ">Modifier</button>  
+     </form>
 </section>
 

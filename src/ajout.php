@@ -43,7 +43,7 @@
             <li> <?= ucfirst($_SESSION['user']['NOM_PRENOM']); ?> <i class="far fa-user-circle"></i>
               <ul class="user__submenu">
                 <li><a href=""><i class="far fa-question-circle"></i>Assisstance</a></li>
-                <li><a href=""><i class="far fa-cog"></i>Paramètres</a></li>
+                <li><a href="parametre.php"><i class="far fa-cog"></i>Paramètres</a></li>
                 <li><a href="/Booksharing/src/déconnexion.php"><i class="fal fa-sign-out"></i>Déconnexion</a></li>
               </ul>
             </li>
@@ -67,7 +67,7 @@
               <h3>Partager vos livre avec les autres</h3>
             </div>
             <p>Vous etes Auteur, Libraire ou alors un Particulier, et vous souhaitez mettre à disposition vos livres,C'est simple, Inscrivez vous et remplissez le formulaire suivant pour vos Ajouts </p>
-            <p><strong>NB : </strong> <span>Image : Taille(210*310) </span></p>
+            <p><strong>NB : </strong> <span>Veuillez entrez une image nette et visible </span></p>
           </div>
         <form class="login__form" action="ajout_traitement.php" method="POST" enctype="multipart/form-data">
 

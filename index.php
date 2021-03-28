@@ -20,6 +20,7 @@
 
     <div class="main__section">
       <!-- ici tu met tes section-->
+
       <section class="marketing__blog">
         <div class="marketing__text">
           <h3 class="title__tag">Livre de la semaine</h3>
@@ -28,7 +29,7 @@
         </div>
         <img src="./images/book1.svg" class="marketing__img" alt="book">
       </section>
-      <section class="book">
+    <section class="book">
         <h2 class="h2">Nouveautés</h2>
         <hr>
         <div class="new__book">

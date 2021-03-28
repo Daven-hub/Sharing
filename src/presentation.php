@@ -54,7 +54,8 @@
         require_once('config.php');
         if(isset($_GET['isbn']))
         {
-           $select = $bdd -> query("SELECT * FROM livre WHERE ISBN='".$_GET['isbn']."'") -> fetch();     
+           $select = $bdd -> query("SELECT * FROM livre WHERE ISBN='".$_GET['isbn']."'") -> fetch();   
+           $id_cat=$select['ID_CAT'] ; 
              ?>
           <div class="statut__head">
             <div class="statut__image">
@@ -119,7 +120,7 @@
             
             if(isset($_SESSION['id_cmd']))
             {
-               var_dump($_SESSION['id_cmd']);
+              
                $id_cmd =$_SESSION['id_cmd'];
                $isbnp = $_GET['isbn_panier'] ;
         $insertpanier = $bdd->prepare("INSERT INTO commande_livre VALUES( '$id_cmd','$isbnp', '1')");
@@ -136,8 +137,7 @@
                 $id = $_SESSION['user']['ID_USER'];
               $insert = $bdd->prepare("INSERT INTO commande(ID_CMD, ID_USER, DATE_CMD, ADRESS_LIV, OPTION_CMD, DATE_LIV  ) VALUES(null,'$id','2021-04-04',  'Bonaberie', 'Achat', '2021-04-04')");
               $insert -> execute();
-                 var_dump($insert);
-                 var_dump($bdd -> lastInsertId());
+                
                 // $_SESSION['panier'] = false;
                  $_SESSION['id_cmd'] = $bdd -> lastInsertId();
                  $insertpanier = $bdd->prepare('INSERT INTO commande_livre VALUES(:id, :isbn, :quantite)');
@@ -149,7 +149,7 @@
               }
               
             }
-
+             header('Location:../index.php');
           }
           ?>
         </div>
@@ -228,7 +228,15 @@
                     echo "Aucun resultat trouvé pour " .$search ;
                   }
                   
-                }else if (isset($_GET['ID_CAT'] ))
+                }else if(isset($id_cat))
+                {
+                  $select = $bdd -> query("SELECT * FROM livre WHERE ID_CAT=".$id_cat." AND ISBN!='".$isbn."'" ) -> fetchAll();
+                  if($select == null) 
+                  {
+                    echo "Aucun autre livre trouvé pour cette catégorie "  ;
+                  }
+                }
+                else if (isset($_GET['ID_CAT'] ))
                 {
                   $cat = htmlspecialchars($_GET['ID_CAT'] );
                   $select = $bdd -> query("SELECT * FROM livre WHERE ID_CAT=".$_GET['ID_CAT']." AND ISBN!='".$isbn."'" ) -> fetchAll();

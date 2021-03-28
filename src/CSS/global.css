@@ -127,6 +127,13 @@ input[type="search"]::-webkit-search-results-decoration {
     background: var(--rougeClair);
     color: #FB6F6F;
 }
+.btn__ajouter{
+    background: var(--vert);
+}
+.btn__ajouter:hover{
+    padding: 14px;
+    border: #FB6F6F 3px solid bloc;
+}
 
 /**INPUT STYLE*/
 input[type="text"],
@@ -248,7 +255,7 @@ input[type='checkbox']:checked ~ .checkbox {
 
 .book__headline p{
     height: 210px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .book__items .book__description {
@@ -280,3 +287,28 @@ input[type='checkbox']:checked ~ .checkbox {
     color : var(--orange)
 }
 
+.shop{
+    color: rgb(251, 251, 251);
+    position: relative;
+    right: -5px;
+    top: -18px;
+    width: 18px;
+    height: 18px;
+    border-radius: 20px;
+    background-color: rgb(231, 91, 36);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.action{
+    display: none;
+}
+
+.new__book .book_items img::hover ~ .action{
+    display: block;
+    position: relative;
+    top: -25rem;
+    right: -11rem;
+}

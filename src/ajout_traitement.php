@@ -24,6 +24,7 @@ session_start();
       $description = htmlspecialchars($_POST['description']);
       $langue = htmlspecialchars($_POST['langue']);
       $id_user = $_SESSION['user']['ID_USER'];
+      $date_ajout=date('Y-m-d H:i:s');
 
       $check = $bdd->prepare('SELECT * FROM livre WHERE isbn = ?');
       $check->execute(array($isbn));
@@ -37,9 +38,8 @@ session_start();
           if(strlen($isbn) == 13)
           {
   
-                  $insert = $bdd->prepare('INSERT INTO livre(ISBN, ID_CAT ,TITRE, NOM_AUTEUR, NOM_EDITION, DATE_PARITION,PRIX, LANGUE,IMAGE1, DESCRIPTION, ID_USER) VALUES(:isbn,:id_cat,:title, :nom, :edition, :date, :prix, :langue, :image,:description,:id_user)');
-                if
-                (  $insert->execute(array(
+                  $insert = $bdd->prepare('INSERT INTO livre(ISBN, ID_CAT ,TITRE, NOM_AUTEUR, NOM_EDITION, DATE_PARITION,PRIX, LANGUE,IMAGE1, DESCRIPTION, ID_USER,DATE_AJOUT) VALUES(:isbn,:id_cat,:title, :nom, :edition, :date, :prix, :langue, :image,:description,:id_user,\''.date("Y-m-d H:i:s").'\')');
+                $insert->execute(array(
                      'isbn' => $isbn,
                      'id_cat' => $categorie,
                      'title' => $title,
@@ -51,7 +51,9 @@ session_start();
                      'image' => $image,
                      'description' => $description,
                      'id_user' => $id_user
-                ))){
+                ));
+             
+                 if($insert ){
                      header('Location:ajout.php?reg_err=succes');
                 }else
                   var_dump($bdd->errorInfo());
