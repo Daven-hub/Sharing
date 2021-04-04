@@ -100,12 +100,12 @@
               </div>
               <div class="form__group">
                 <label for="password">Nouveau Mot de passe</label>
-                <input type="password" name="password" id="mdp-verify" value="<?php echo $select['MDP']; ?>" class="" /><br />
+                <input type="password" name="password" id="mdp-verify" value="<?php echo ""; ?>" class="" /><br />
                
               </div>
               <div class="form__group">
                 <label for="mdp-verify">Confirmer votre mot de passe</label>
-                <input type="password" name="password_retype" id="mdp-verify" value="<?php echo $select['MDP']; } ?>" class="" /><br />
+                <input type="password" name="password_retype" id="mdp-verify" value="<?php echo ''; } ?>" class="" /><br />
               </div>
               <button name="modif"  class="btn btn__colored ">Modifier</button>  
      </form>

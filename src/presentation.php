@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./CSS/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon"  href="/Booksharing/images/logo.svg">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>BookSharing</title>
@@ -172,12 +173,12 @@
             }
           }
           ?>
-          <p>Pour la colcation de <strong class="UP"><?php echo $select['TITRE']; ?></strong> veuillez remplir le formulaire, vous n'aurez le livre que pour une période <strong class="UP"> 10 Jours </strong> Renouvellable</p>
+          <p>Pour la lolcation de <strong class="UP"><?php echo $select['TITRE']; ?></strong> veuillez remplir le formulaire, Il vous sera facturer à  <strong class="UP"><?php echo $select['PRIX']*0.3; ?> Fcfa</strong> soit <strong class="UP">30%</strong> du prix d'achat et vous ne l'aurez  que pour une période <strong class="UP"> 10 Jours </strong> Renouvellable</p>
           <form action="presentation_traitement.php?isbn=<?php echo $select['ISBN']; ?>" method="post">
             <input type="text" name="lieu" id="" placeholder="Lieu de Livraison"><br><br>
             <label for="date">Entrez la date de livarison :</label>
             <input type="date" name="date" id="" placeholder="Date de Livraison"><br><br>
-            <button class="btn btn__colored" name="btn__ok">Ok</button>
+            <button class="btn btn__colored" name="btn__ok_location">Ok</button>
           </form>
         </div>
       </aside>

@@ -1202,35 +1202,125 @@
                                 <div class="card">
                                     <div class="card-header">Example Form</div>
                                     <div class="card-body card-block">
-                                        <form action="" method="post" class="">
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-user"></i>
-                                                    </div>
-                                                    <input type="text" id="username" name="username" placeholder="Username" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </div>
-                                                    <input type="email" id="email" name="email" placeholder="Email" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-asterisk"></i>
-                                                    </div>
-                                                    <input type="password" id="password" name="password" placeholder="Password" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-actions form-group">
-                                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
-                                            </div>
-                                        </form>
+                                 
+                                 
+   <form class="login__form" action="ajout_traitement.php" method="POST" enctype="multipart/form-data">
+
+        <?php
+          if(isset($_GET['reg_err']))
+          {
+            $err = htmlspecialchars($_GET['reg_err']);
+
+            switch($err)
+            {
+
+              case 'succes':
+                ?>
+                <div class="error__ error__succes"><i class="fas fa-exclamation-circle"></i> Ajout Effectué avec Succès !</div>
+              <?php
+              break; 
+
+              case 'isbn_length':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> ISBN Incorrect</div>
+              <?php
+              break;
+
+              case 'empty':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> vous devez remplir tous les champs</div>
+              <?php
+              break; 
+
+              case 'nom':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> Nom Trop Long</div>
+              <?php
+              break; 
+
+              case 'already':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i> Livre déja existant</div>
+              <?php
+              break;
+              
+              case 'noconnect':
+                ?>
+                <div class="error__ error__message"><i class="fas fa-exclamation-circle"></i>Vous devez vous connecter</div>
+              <?php
+              break;
+             }
+          }
+        ?>   
+
+
+              <div class="auth__grid">
+                <div class="form__group">
+                  <label for="title">Titre du livre</label>
+                  <input type="text" name="title" id="title"/><br />
+                </div>
+              <div class="form__group">
+                <label for="name">Nom de l'auteur</label>
+                <input type="text" name="nom" id="name"/><br />
+              </div>
+              <div class="form__group">
+                <label for="edition">Nom d'édition</label>
+                <input type="text" name="edition" id="edition" /><br />
+              </div>
+              <div class="form__group">
+                <label for="date">Date de parution</label>
+                <input type="date" name="date" id="date" placeholder="10/12/1877"/><br />
+              </div>
+              <div class="form__group">
+                <label for="langue">Langue</label>
+                <input type="text" name="langue" id="langue" /><br />
+              </div>
+              <div class="form__group">
+                <label for="isbn">Numéro ISBN</label>
+                <input type="number" min="0" name="isbn" id="isbn" /><br />
+              </div>
+              <div class="form__group">
+                <label for="categorie">Catégorie</label><br>
+                <select name="categorie" id="">
+                <option value="0"></option>
+               <?php
+                require_once('config.php');
+                $select = $bdd -> query('SELECT * FROM categorie') -> fetchAll();
+                foreach($select AS $row)
+                {
+                  echo "<option value = \"".$row['ID_CAT']."\">".$row['NOM_CAT']."</option>";
+                }
+               ?>
+                </select>
+              </div>
+              <div class="form__group">
+                <label for="prix">Prix (FCFA) :</label>
+                <input type="number" min="500" name="prix" id="prix" /><br />
+              </div>
+             
+              <div class="login__options">
+              </div>
+            </div>
+            <div class="book__cover">
+              <div class="img__cover"></div>
+              <div class="uploadbtn">
+                <label for="img__file" class="btn btn__border">Image </label>
+                <input type="file" name="image" id="img__file">
+              </div>
+            </div><br>
+            <div class="form__group">
+                <label for="description">Description :</label><br>
+                <textarea id="description" name="description"></textarea>
+              </div>
+
+            <div class="form__group checkbox__group">
+              <input type="checkbox" name="" id="privacy" class="input__checkbox">
+              <label for="privacy" class="checkbox"></label>
+              <label for="privacy">Accepter vous les termes liés à la publication de vos articles sur notre platefrome ? </label>
+            </div>
+           
+              <button class="btn btn__colored" name="save">Ajouter</button>
+        </form>
                                     </div>
                                 </div>
                             </div>
@@ -1238,7 +1328,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                    <p>Copyright © 2021 RDCT. All rights reserved. Template by </p>
                                 </div>
                             </div>
                         </div>

@@ -12,11 +12,6 @@
                                 <i class="fas fa-tachometer-alt"></i>Administration</a>
                            
                         </li>
-                       
-                        <li>
-                            <a href="table.php">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
                         <li>
                             <a href="form.php">
                                 <i class="far fa-check-square"></i>Forms</a>

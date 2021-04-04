@@ -15,9 +15,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $password = hash('sha256', $password);
             if ($data['MDP'] === $password) {
-                $_SESSION['user']['ID_USER'] = $data['ID_USER'];
-                $_SESSION['user']['NOM_PRENOM'] = $data['NOM_PRENOM'];
-                $_SESSION['user']['EMAIL'] = $data['EMAIL'];
+                $_SESSION['user']= $data;
+                $query = "UPDATE utilisateurs SET STATUT=1 WHERE ID_USER=".$_SESSION['user']['ID_USER'];
+                $id = $_SESSION['user']['ID_USER'];
+                $select = $bdd -> query("SELECT ID_CMD FROM commande WHERE ID_USER=$id" ) -> fetch();
+                if(!empty($select))
+                {
+                    $_SESSION['id_cmd']=$select['ID_CMD'];
+                }   
+
+               if( $bdd->query($query))
                 header('Location:/Booksharing/index.php');
             } else header('Location:connexion.php?login_err=password');
         } else header('Location:connexion.php?login_err=email');

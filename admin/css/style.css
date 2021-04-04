@@ -1,0 +1,12 @@
+@import 'variables.css';
+@import 'normalize.css';
+@import 'global.css';
+@import 'header.css';
+@import 'footer.css';
+@import 'navigation.css';
+@import 'sections.css';
+@import 'connexion.css';
+@import 'inscription.css';
+@import 'responsive.css';
+@import 'modal.css';
+@import 'slider.css';

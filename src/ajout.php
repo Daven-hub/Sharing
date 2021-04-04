@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon"  href="/Booksharing/images/logo.svg">
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -142,7 +143,7 @@
               </div>
               <div class="form__group">
                 <label for="isbn">Numéro ISBN</label>
-                <input type="number" name="isbn" id="isbn" /><br />
+                <input type="number" min="0" name="isbn" id="isbn" /><br />
               </div>
               <div class="form__group">
                 <label for="categorie">Catégorie</label><br>
@@ -160,7 +161,7 @@
               </div>
               <div class="form__group">
                 <label for="prix">Prix (FCFA) :</label>
-                <input type="number" name="prix" id="prix" /><br />
+                <input type="number" min="500" name="prix" id="prix" /><br />
               </div>
              
               <div class="login__options">

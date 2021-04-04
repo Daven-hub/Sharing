@@ -14,6 +14,7 @@ if (isset($_SESSION['user'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./CSS/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon"  href="/Booksharing/images/logo.svg">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>BookSharing</title>
@@ -87,7 +88,7 @@ if (isset($_SESSION['user'])) {
                     <div class="quantity flex">
                       <div class="form__group">
                         <label for="book__number">Quantité : </label>
-                        <input type="number" name="" id="book__number" aria-valuemin="1" aria-valuemax="10" isbn="<?= $row['ISBN']; ?>" onchange="calculqt(this.getAttribute('isbn'), this.value, <?= $row['PRIX']; ?>)">
+                        <input type="number" name="" id="book__number" min="1" max="10" isbn="<?= $row['ISBN']; ?>" onchange="calculqt(this.getAttribute('isbn'), this.value, <?= $row['PRIX']; ?>)">
                       </div>
                       <button class="btn btn__warning"><a href="?ISBN=<?php echo $row['ISBN']; ?>"> Supprimer</a></button>
                     </div>
@@ -101,19 +102,26 @@ if (isset($_SESSION['user'])) {
           <div class="total__price">TOTAL : <span id="total__price"><?php echo $prixt; ?></span> Frcfa</div>
           <div class="shop__cta">
             <a href="/BookSharing/index.php" class="btn btn__secondary">Continuer les achats</a>
-            <a href="#modal1" class="btn btn__success">Valider la commande</a>
+            <a href="#modal1" class="js-modal btn btn__success">Valider la commande</a>
+            
           </div>
         </div>
       </section>
 
       <!----Ma Fenetre Modal-->
       <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display:none;">
+      <?php 
+        $query = "SELECT l.* from livre l,commande c,commande_livre cl WHERE l.ISBN=cl.ISBN and c.ID_CMD=cl.ID_CMD and c.ID_USER=" . $_SESSION['user']['ID_USER'] . " GROUP by ISBN";
+        $select = $bdd->query($query)->fetchAll();
+        foreach ($select as $row){}
+      
+      ?>
         <div class="modal-wrapper js-modal-stop">
           <button class="js-modal-close">X</button>
-          <h1 id="titlemodal">BookSharing Info: Location du livre <strong class="UP"><?php echo $select['TITRE']; ?></strong></h1>
+          <h1 id="titlemodal">BookSharing Info: Validation de votre Panier</h1>
           <?php
           ?>
-          <p>Pour la colcation de <strong class="UP"><?php echo $select['TITRE']; ?></strong> veuillez remplir le formulaire, vous n'aurez le livre que pour une période <strong class="UP"> 10 Jours </strong> Renouvellable</p>
+          <p>Vous avez  <strong class="UP"> 4 </strong> article dans votre panier veuillez remplir le formulaire, vous n'aurez le livre que pour une période <strong class="UP"> 10 Jours </strong> Renouvellable</p>
           <form action="presentation_traitement.php?isbn=<?php echo $select['ISBN']; ?>" method="post">
             <input type="text" name="lieu" id="" placeholder="Lieu de Livraison"><br><br>
             <label for="date">Entrez la date de livarison :</label>
@@ -124,21 +132,21 @@ if (isset($_SESSION['user'])) {
       </aside>
     </div>
   </main>
-
   <?php
-  if (isset($_GET['ISBN'])) {
-    $query = "DELETE FROM `commande_livre` WHERE `commande_livre`.ISBN='" . $_GET['ISBN'] . "'";
-    if ($bdd->query($query)) {
-      header('Location:panier.php?reg_err=succes');
-    } else {
-      header('Location:panier.php?reg_err=error');
-    }
-  }
-  include("includes/footer.php") ?>
+                                      if (isset($_GET['ISBN'])) {
+                                            $query = "DELETE FROM `commande_livre` WHERE `commande_livre`.ISBN='" . $_GET['ISBN'] . "'";
+                                            if ($bdd->query($query)) {
+                                                    echo "  <script>window.location.assign(\"panier.php?reg_err=succes\")</script>";
+                                            }
+                                        }
+                                    ?>
+                            
+  <?php include("includes/footer.php") ?>
   <script>
     var  totalprice = 0 ;
   </script>
   <script src="./JS/app.js?v=1"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,161 @@
+/*!LES STYLES DE TES SECTIONS */
+
+.marketing__blog {
+    color: var(--white);
+    background: linear-gradient(to left, var(--blueLight) 10%, var(--darkBlue));
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.marketing__text h1,
+.marketing__text h3,
+.marketing__text h4 {
+    font-weight: 400;
+}
+
+.marketing__text .title__tag {
+    border-radius: 2px;
+    font-size: .875rem;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0;
+}
+
+.marketing__text .title {
+    margin: .8rem 0;
+}
+
+.marketing__text .author__name {
+    margin: 0;
+
+}
+
+.marketing__img {
+    display: none;
+}
+
+/**PRESENTATION*/
+.statut__head {
+    margin-bottom: 2.25rem;
+}
+
+.statut__image {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;  
+}
+
+.statut__image img{
+    width: 215px;
+    height: 320px;
+}
+
+.statut__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.statut__header div .book__title{
+    margin-bottom: 0;
+    color: var(--blueLight);
+}
+
+.statut__header div .author__name,
+.statut__header div .book__price {
+    margin: 0;
+}
+
+
+.statut__header div .book__price span {
+    font-size: 2.25rem;
+}
+
+
+.book__statut .statut__text .statut__cta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/**statut detail block*/
+.statut__detail {
+    background: white;
+    border-radius: 14px;
+    color: #5f2a06;
+    filter: drop-shadow( 0 0px 4px rgba(107, 50, 3, 0.207));
+
+}
+
+.statut__detail .detail__head{
+    padding: 1rem;
+    background: var(--blueLight);
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+.detail__head h3 {
+    font-weight: 600;
+    color: white;
+}
+
+.statut__detail .detail__content {
+    padding: 1rem;
+    color: var(--orange);
+    font-weight: 600;
+}
+
+.detail__content span {
+    color: #5f2a06;
+}
+
+/**PANIER */
+
+.book__shop .shop__head {
+    display: flex;
+    flex-direction: column;
+}
+
+.shop__head p {
+    margin: .7rem 0;
+}
+
+.shop__articles .articles__items {
+    margin-top: 3.5rem;
+    border-bottom: 2px solid #7070701e;
+}
+
+.shop__articles button {
+    font-weight: 600;
+    display: inline-block;
+    max-width: 7.8125rem;
+    margin-left: auto;
+}
+
+.quantity .form__group input {
+    max-width: 90px;
+}
+
+.shop__cost .total__price {
+    font-size: 1.5rem;
+    text-align: right;
+    margin: 1rem 0;
+}
+
+.total__price span {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--orange);
+}
+
+.shop__cost .btn {
+    margin: .5rem 0;
+    font-weight: 600;
+}
+
+
+

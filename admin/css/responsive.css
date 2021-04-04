@@ -1,0 +1,259 @@
+/*!LES STYLES CONCERNANT LE RESPONSIVE*/
+
+/*MOBILE --> */
+@media(max-width: 649px){
+	.book__statut{
+		flex-wrap: wrap;
+	}
+	.book__statut .statut__text .description{
+		width: 20rem;
+	  }
+	  .quantity input{
+		width: 4rem;
+	}
+}
+
+/*TABLET --> */
+@media (min-width: 650px){
+    .header__logo img{
+        width: 8rem;
+    }
+
+    .header__cta {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .marketing__blog {
+        justify-content: space-evenly;
+        height: 280px;
+    }
+
+    .marketing__img {
+        display: inline-block;
+	}
+
+	.book__statut {
+		flex-wrap: wrap;
+	}
+
+	.book .new__book {
+	grid-template-columns: repeat(3, 1fr);
+	
+	}
+
+	.new__book .book__items img {
+    max-height: 260px;
+	}
+
+	.form__block {
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 430px;
+	}
+
+	.auth__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.2rem;
+	}
+
+	.statut__head {
+		display: flex;
+	}
+
+	.statut__head .statut__image {
+		margin: 0 32px 0 0;
+	}
+
+	.statut__head .statut__text {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.articles__items .statut__head .statut__text {
+		justify-content: space-around;
+	}
+
+	.footer__content {
+		display: grid;
+    	grid-template-columns: repeat(2,1fr);
+	}
+
+	.book__shop .shop__head {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: 2rem 0;
+	}
+	.shop__head h3 {
+		font-size: 1.5rem;
+	}
+
+	.shop__cta {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.shop__cta .btn {
+		margin: 0 .5rem;
+	}
+
+}
+
+@media (min-width: 900px) {
+	.header {
+		padding: 1.5rem;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.header__menu {
+		display: none;
+	}
+
+	.header__search_bar {
+		margin: 0;
+        width: 520px;
+        margin-right: 1rem;
+	}
+	.header__action {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		margin-right: 130px;
+		margin-left: 24px;
+		width: 70%;
+	}
+
+	.header__icon {
+		position: absolute;
+		right: 1.25rem;
+	}
+
+	.main {
+		display: flex;
+    }
+    
+    .main__section {
+    padding: 2.25rem;
+    width: 100%;
+}
+
+	.main__navigation {
+		transform: translateX(0);
+		position: relative;
+		display: inline-block;
+		height: 100vh;
+		flex: none;
+		width: 20%;
+		background-color: var(--verylightGray);
+		color: black;
+		box-shadow: none;
+		overflow-y: hidden;
+        border-right: 1px solid var(--lightGrayishBlue);
+	}
+	.main__navigation ul li a {
+		color: var(--grayDark);
+	}
+
+	.main__navigation ul li a:hover {
+		background-color: var(--lightGrayishBlue);
+	}
+
+    .main__navigation .nav__header{
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+    }
+	.main__navigation .nav__header,
+	.sub__category {
+		background: transparent;
+	}
+	.sub__category {
+        color: #000;
+        margin-top: 1rem;
+	}
+
+	.book .new__book {
+		grid-template-columns: repeat(4, 1fr);
+	
+	}
+
+	.form__container {
+		position: relative;
+    	height: 100vh;
+	}
+
+	.auth__login {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.auth__sidebar{
+		background: url("../../images/auth-bg.png") center center / cover no-repeat;
+	}
+
+	.auth__signin {
+    	display: grid;
+		grid-template-columns: 70% auto;
+	}
+
+	.auth__signin .register__container {
+    	max-width: 700px;
+    	margin: 0 auto;
+	}
+
+	.footer__content {
+		display: grid;
+    	grid-template-columns: repeat(4,1fr);
+	}
+
+	
+}
+
+/*DESKTOP --> */
+@media (min-width : 1280px) {
+	.statut__model {
+		display: grid;
+    	gap: 32px;
+    	height: 100%;
+		grid-template-columns: 70% auto;
+	}
+
+	.book__statut .statut__head {
+    margin-bottom: 0;
+	}
+	.flex .louer{
+		margin-right: 5px;
+	}
+}
+
+@media (min-width: 1400px) {
+	:root {
+		--container: 1280px;
+	}
+	.container {
+		max-width: var(--container);
+		margin: 0 auto;
+	}
+	.book .new__book {
+	grid-template-columns: repeat(5, 1fr);
+	
+	}
+}
+
+@media (min-width: 1600px) {
+	:root {
+		--container: 1400px;
+	}
+	.container {
+		max-width: var(--container);
+		margin: 0 auto;
+	}
+	.main__navigation{
+		overflow-y: scroll;
+	}
+}

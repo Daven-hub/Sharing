@@ -18,9 +18,12 @@
           $select = $bdd->query($query)->fetch();
           
         }
+      
+          
           ?>
+
     <div class="header__icon">
-    <span class="shop"><?php   if (isset($_SESSION['user'])) { echo $select['nbr']; } ?></span>
+    <span class="shop"><?php $nbr=0;  if (isset($_SESSION['user'])) { echo $select['nbr']; } ?></span>
   <a href="/Booksharing/src/panier.php"><i class="fal fa-shopping-cart"></i></a>
       <?php if (isset($_SESSION['user']['NOM_PRENOM'])) : ?>
         <div class="user__setting">
